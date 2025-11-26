@@ -278,17 +278,21 @@ function buildCourseSummaries(course) {
 function updateCourseSummary(course) {
   const nameEl = document.getElementById("course-summary-name");
   const avgEl = document.getElementById("course-summary-average");
-  if (!nameEl || !avgEl) return;
+  const studentsEl = document.getElementById("course-summary-students");
+  if (!nameEl || !avgEl || !studentsEl) return;
 
   if (!course) {
     nameEl.textContent = "Select a course";
     avgEl.textContent = "--";
+    studentsEl.textContent = "--";
     return;
   }
 
   nameEl.textContent = course;
   const average = computeCourseAverage(course);
   avgEl.textContent = Number.isFinite(average) ? average.toFixed(2) : "--";
+  const students = computeCourseStudentCount(course);
+  studentsEl.textContent = Number.isFinite(students) ? students : "--";
 }
 
 function computeCourseAverage(course) {
@@ -300,6 +304,16 @@ function computeCourseAverage(course) {
   if (!scores.length) return null;
   const total = scores.reduce((sum, score) => sum + score, 0);
   return total / scores.length;
+}
+
+function computeCourseStudentCount(course) {
+  const keys = [];
+  studentRecords.forEach((row, index) => {
+    if (row.course !== course) return;
+    const key = row.id ? `id:${row.id}` : `row:${index}`;
+    keys.push(key);
+  });
+  return new Set(keys).size;
 }
 
 function renderStats(rows) {

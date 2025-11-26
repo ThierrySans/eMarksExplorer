@@ -218,13 +218,26 @@ tbody tr:hover {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  flex-wrap: wrap;
 }
 
 .course-summary h2 {
   margin: 4px 0 0;
 }
 
-.course-average-value {
+.course-summary-metrics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.course-summary-metric {
+  text-align: right;
+}
+
+.course-average-value,
+.course-summary-value {
   margin: 4px 0 0;
   font-size: 24px;
   font-weight: 700;
