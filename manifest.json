@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "eMarks Explorer",
+  "version": "0.1.0",
+  "description": "Extract and Analyze your UofT eMarks.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://emarks.utoronto.ca/*"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "eMarks Explorer"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://emarks.utoronto.ca/emarks/pages/marks/marks.xhtml*"
+      ],
+      "js": [
+        "script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

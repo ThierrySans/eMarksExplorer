@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0f172a;
+  --card: #0b1222;
+  --muted: #94a3b8;
+  --accent: #22d3ee;
+  --accent-2: #a855f7;
+  --line: rgba(148, 163, 184, 0.2);
+  --text: #e2e8f0;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.08), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.08), transparent 30%),
+              var(--bg);
+  color: var(--text);
+  font-family: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.brand .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+}
+
+.last-updated {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-items {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.nav-item {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.nav-item:hover {
+  border-color: rgba(34, 211, 238, 0.6);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(168, 85, 247, 0.2));
+  border-color: rgba(34, 211, 238, 0.8);
+}
+
+.panel {
+  display: none;
+  padding: 22px;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.filter select {
+  min-width: 120px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.filter input {
+  min-width: 140px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.panel h1 {
+  margin: 4px 0 0;
+}
+
+.pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: calc(100vh - 180px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 1;
+}
+
+th, td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+tbody tr:hover {
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.placeholder {
+  padding: 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+
+.course-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.course-summary h2 {
+  margin: 4px 0 0;
+}
+
+.course-average-value {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(168, 85, 247, 0.04));
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icon {
+  font-size: 84px;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  margin: 4px 0 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-items {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
