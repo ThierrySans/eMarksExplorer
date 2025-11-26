@@ -17,17 +17,8 @@ This repository contains the source for the eMarks Explorer Chrome extension, wh
 - Sign in to eMarks and open your marks page (`https://emarks.utoronto.ca/emarks/pages/marks/marks.xhtml`).
 - Click the eMarks Explorer icon in the toolbar to open the popup.
 - Use the popup controls to extract and review your marks; the content script runs on the marks page to gather the data.
-- If you make changes and reload the extension, refresh the marks page before trying again.
-
-## Updating During Development
-- After making code changes, return to `chrome://extensions` and click the **Reload** icon on the eMarks Explorer card to apply updates.
-- Use the background page/service worker logs (click **Service worker** under the extension entry) and the popup devtools to debug as needed.
-
-## Files of Interest
-- `manifest.json` — Extension metadata and permissions.
-- `service_worker.js` — Background service worker.
-- `script.js` — Content script injected into the eMarks page.
-- `popup.html`, `popup.js`, `popup.css` — UI shown when clicking the extension icon.
+- Open the eMarks Explorer Dashboard to browse your data.
+- If you pull code changes and reload the extension, refresh the marks page before trying again.
 
 ## Privacy
 - The extension does not collect or transmit your credentials.
